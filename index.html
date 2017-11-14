@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Black Panther: RPG</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <!-- My CSS File -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+</head>
+
+<body>
+
+    <!-- Overall Bootstrap Grid -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Select your panther!</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="allCharacters"></div>
+                <!-- All Characters Initially appear here-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="yourCharHeader">
+                <h2>Your character</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="selectedChar"></div>
+                <!-- Player's chosen character moves here -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="enemiesHeader">
+                <h2> Enemies available to attack </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="availableEnemies"></div>
+                <!-- All opponents move here -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="oppHeader">
+                <h2> Your Opponent </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="selectedOpp"></div>
+                <!-- Player's chosen opponent moves here -->
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="row">
+            <div class="col-lg-md gameMsg">
+                <h2> Fight Section</h2>
+                <button id="attackbutton" class="btn btn-default attack">Attack</button>
+                <div id="gameUpdates"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2" id="newGame">
+                <button class="btn btn-default newGame">Restart</button>
+            </div>
+        </div>
+
+    </div>
+
+<!-- My JS File -->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>

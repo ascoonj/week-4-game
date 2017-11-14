@@ -1,0 +1,56 @@
+body {
+    color: black;
+    background: url("../images/bkgd1.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    /* width: 1000px; */
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+body,
+html {
+    font-family: 'Russo One', sans-serif;
+    color: rgb(75, 71, 71);
+}
+
+img {
+    width: 116px;
+    height: 83px;
+    /* border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: none; */
+}
+
+.character {
+    margin: 0;
+    padding: 10px;
+    border: solid;
+    border-width: 3px;
+    border-color: rgb(107, 107, 107);
+    background-color: rgb(179, 173, 197);
+    height: 145px;
+    /* width: 150px;
+    height: 85px; */
+}
+
+.allcharacters {
+    margin-top: 100px;
+}
+
+.addEnemies>h5 {
+    /* height: 150px; */
+    padding: 63px 0 63px 0;
+    border: solid;
+    border-color: black;
+    min-height: 145px;
+}
+
+.defender>h5 {
+    padding: 63px 0 63px 0;
+    border: solid;
+    border-color: black;
+}
