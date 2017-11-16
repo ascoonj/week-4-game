@@ -21,7 +21,7 @@
     <!-- Overall Bootstrap Grid -->
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="selectheader">
                 <h2>Select your panther!</h2>
             </div>
         </div>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12" id="yourCharHeader">
+            <div class="col-md-12 hideOnStart" id="yourCharHeader">
                 <h2>Your character</h2>
             </div>
         </div>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12" id="oppHeader">
+            <div class="col-md-12 hideOnStart" id="oppHeader">
                 <h2> Your Opponent </h2>
             </div>
         </div>
@@ -74,16 +74,18 @@
 
         <!--  -->
         <div class="row">
-            <div class="col-lg-md gameMsg">
+            <div class="col-lg-md gameMsg hideOnStart">
                 <h2> Fight Section</h2>
+                <br>
                 <button id="attackbutton" class="btn btn-default attack">Attack</button>
+                <br>
                 <div id="gameUpdates"></div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-2" id="newGame">
-                <button class="btn btn-default newGame">Restart</button>
+                <button class="btn btn-default newGame hideOnStart">Restart</button>
             </div>
         </div>
 

@@ -7,7 +7,7 @@ body {
 .container {
     /* width: 1000px; */
     margin-left: 15px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 body,
@@ -16,9 +16,18 @@ html {
     color: rgb(75, 71, 71);
 }
 
+.eachChar, .myChar, .enemyChar, #selectedOpp {
+    display: inline-block;
+    padding: 5px;
+}
+
+.char-name, .char-healthpower {
+    text-align: center;
+}
+
 img {
-    width: 116px;
-    height: 83px;
+    width: 128px;
+    height: 91px;
     /* border: 0;
     margin: 0;
     padding: 0;
@@ -53,4 +62,12 @@ img {
     padding: 63px 0 63px 0;
     border: solid;
     border-color: black;
+}
+
+.hideOnStart {
+    display: none;
+}
+
+.btn {
+    margin-bottom: 10px;
 }
