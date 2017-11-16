@@ -2,6 +2,10 @@
 //-----------------------------------------------------------------------------------------------------
 
 // Create an array of character options
+var x = document.getElementById("myAudio");
+x.play();
+x.loop = true;
+
 var panthers = [
 
     {
