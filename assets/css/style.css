@@ -74,4 +74,13 @@ img {
 
 #attackbutton {
     margin-left: 15px;
+
+}
+/* 
+#fightHeader {
+    margin-left: 13px;
+} */
+
+.gameMessage {
+    margin-left: 10px;
 }

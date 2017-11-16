@@ -2,15 +2,18 @@
 //-----------------------------------------------------------------------------------------------------
 
 // Create an array of character options
-var x = document.getElementById("myAudio");
+
+
+var x = document.getElementById("myAudio"); //audio variable, set to play on repeat
 x.play();
 x.loop = true;
 
+//An array of objects, each of which holds and individual panther character
 var panthers = [
 
     {
         name: "M'baku",
-        healthPoints: 170,
+        healthPoints: 165,
         attackPower: 10,
         pantherImg: "assets/images/mbaku1.jpg",
         container: $("<div>")
@@ -19,7 +22,7 @@ var panthers = [
     {
         name: "Okoye",
         healthPoints: 160,
-        attackPower: 15,
+        attackPower: 8,
         pantherImg: "assets/images/okoye1.jpg",
         container: $("<div>")
 
@@ -28,23 +31,23 @@ var panthers = [
     {
         name: "T'challah",
         healthPoints: 145,
-        attackPower: 28,
+        attackPower: 9,
         pantherImg: "assets/images/tchallah1.jpg",
         container: $("<div>")
     },
 
     {
         name: "Nakia",
-        healthPoints: 130,
-        attackPower: 22,
+        healthPoints: 150,
+        attackPower: 12,
         pantherImg: "assets/images/nakia1.jpg",
         container: $("<div>")
     },
 
     {
         name: "W'kabi",
-        healthPoints: 120,
-        attackPower: 25,
+        healthPoints: 140,
+        attackPower: 15,
         pantherImg: "assets/images/wkabi1.jpg",
         container: $("<div>")
     },
@@ -61,9 +64,10 @@ var haveChar = false;
 var haveDefender = false;
 var wins = 0;
 var losses = 0;
-//var charsDiv = $("#allCharacters");
+
 
 // Create a clickable image of each character within a div
+// Can be called to display in any part of the DOM
 
 var displayPanther = function (index, location) {
 
@@ -85,11 +89,6 @@ var displayPanther = function (index, location) {
     (panthers[index].container).append(charHeading).append(charImg).append(charHP);
     location.append(panthers[index].container);
 
-    // if (yourChar == false) {
-    //     yourCharIndex = i;
-    //     yourChar = 
-    // }
-
 };
 
 
@@ -98,13 +97,10 @@ for (var i = 0; i < panthers.length; i++) {
     displayPanther(i, $("#allCharacters"));
 };
 
-
+//Function created to allow the user to choose a player, and to subsequent display and hide elements as neededl
 var chooseYourChar = function () {
 
     $("#allCharacters").on("click", ".eachChar", function () {
-        // yourCharIndex = ($(this).attr("data-pIndex"));
-        // yourChar = panthers[yourCharIndex].name;
-        // console.log(yourChar);
         $(this).addClass("myChar").removeClass("eachChar");
         $(".myChar").removeClass("eachChar");
         $(this).appendTo("#selectedChar");
