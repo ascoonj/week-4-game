@@ -24,7 +24,7 @@ var panthers = [
     {
         name: "T'challah",
         healthPoints: 145,
-        attackPower: 18,
+        attackPower: 28,
         pantherImg: "assets/images/tchallah1.jpg",
         container: $("<div>")
     },
@@ -78,7 +78,7 @@ var displayPanther = function (index, location) {
     charHP.text("HP: " + panthers[index].healthPoints);
 
     panthers[index].container.attr("data-pIndex", index).addClass("eachChar");
-    (panthers[i].container).append(charHeading).append(charImg).append(charHP);
+    (panthers[index].container).append(charHeading).append(charImg).append(charHP);
     location.append(panthers[index].container);
 
     // if (yourChar == false) {
@@ -98,7 +98,7 @@ for (var i = 0; i < panthers.length; i++) {
 var chooseYourChar = function () {
 
     $("#allCharacters").on("click", ".eachChar", function () {
-        // yourCharIndex = ($(this).attr("data-pindex"));
+        // yourCharIndex = ($(this).attr("data-pIndex"));
         // yourChar = panthers[yourCharIndex].name;
         // console.log(yourChar);
         $(this).addClass("myChar").removeClass("eachChar");
@@ -142,30 +142,70 @@ var chooseYourOppo = function () {
 chooseYourOppo();
 
 
+$(".newGame").on("click", function () {
+    location.reload();
+});
+
+
 var fightOppo = function () {
 
     var numOfAttacks = 0;
-    if ($(".oppoChar").children().length == 1) {
 
-        $("#attackbutton").on("click", function () {
+    $("#attackbutton").on("click", function () {
+        console.log($("#selectedChar").children().length == 1);
+        if ($("#selectedOpp").children().length == 1) {
             numOfAttacks++;
 
-            yourCharIndex = ($(".myChar").attr("data-pindex"));
-            oppoCharIndex = ($(".oppoChar").attr("data-pindex"));
+            yourCharIndex = ($(".myChar").attr("data-pIndex"));
+            oppoCharIndex = ($(".oppoChar").attr("data-pIndex"));
             console.log(yourCharIndex); //undefined? why?
-            console.log(yourCharIndex); //undefined? why?
+            console.log(oppoCharIndex); //undefined? why?
 
-            panthers[yourCharIndex].healthPower + -panthers[oppoCharIndex].attackPower;
-            panthers[oppoCharIndex].healthPower + -(panthers[yourCharIndex].attackPower * numOfAttacks);
+            panthers[yourCharIndex].healthPoints -= panthers[oppoCharIndex].attackPower;
+            panthers[oppoCharIndex].healthPoints -= (panthers[yourCharIndex].attackPower * numOfAttacks);
+
+            console.log("Your Health Power: " + panthers[yourCharIndex].healthPoints);
+            console.log("Opponent's Health Power: " + panthers[oppoCharIndex].healthPoints);
+
+            displayPanther(yourCharIndex, $("#selectedChar"));
+            displayPanther(oppoCharIndex, $("#selectedOpp"));
+
 
             $("#gameUpdates").text("You hit " +
-                panthers[oppoCharIndex].name + " for " + (panthers[yourCharIndex].attackPower * numOfAttacks) + " damage.");
+                panthers[oppoCharIndex].name +
+                " for " + (panthers[yourCharIndex].attackPower * numOfAttacks) + " damage. " +
+                panthers[oppoCharIndex].name + " hit you for " + panthers[oppoCharIndex].attackPower +
+                " damage.");
 
-        });
-    } else {
-        $("#gameUpdates").text("No enemy here.")
-    };
+            if (panthers[yourCharIndex].healthPoints <= 0) {
+                $("#gameFinal").text("Your Health Power has been depleted. You lose! Click the 'Restart' button to begin a new game.");
+                $("#attackbutton").hide();
+                $(".newGame").show();
 
+            } else if (panthers[oppoCharIndex].healthPoints <= 0) {
+                $("#gameUpdates").text("You have defeated " + panthers[oppoCharIndex].name + ".")
+                if ($("#availableEnemies").children().length > 0) {
+                    $("#gameUpdates").append(" Select another opponent to continue fighting.");
+                }
+                $("#enemiesHeader").show();
+                $("#availableEnemies").show();
+                $("#selectedOpp").empty();
+                $("#oppHeader").hide();
+                chooseYourOppo();
+
+                console.log("available Enemies: " + $("#availableEnemies").children().length);
+                if ($("#availableEnemies").children().length == 0) {
+                    $("#gameFinal").text("You have defeated all your opponents! You reign!");
+                    $("#fightHeader, #enemiesHeader, #attackbutton, #gameUpdates").hide();
+                    $(".newGame").show();
+                }
+
+            }
+
+        } else if ($("#selectedOpp").children().length == 0) {
+            $("#gameUpdates").text("No enemy here. Select an opponent.")
+        };
+    });
 };
 
 fightOppo();

@@ -68,6 +68,10 @@ img {
     display: none;
 }
 
-.btn {
+.btn, #gameFinal {
     margin-bottom: 10px;
+}
+
+#attackbutton {
+    margin-left: 15px;
 }
